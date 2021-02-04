@@ -1,18 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package bmi;
 
 import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author zebra
- */
+
 public class Interface extends javax.swing.JFrame {
  
 
@@ -28,7 +20,6 @@ public class Interface extends javax.swing.JFrame {
         txtHeight.setText("");
         txtWeight.setText("");
         txtBMI.setText("");
-//        txtBMI.setOpaque(true);
         txtBMI.setBackground(Color.white);
         title_result.setText("");
     }
@@ -62,7 +53,7 @@ public class Interface extends javax.swing.JFrame {
         setTitle("BMI Calculator");
         setAlwaysOnTop(true);
         setBackground(new java.awt.Color(254, 254, 254));
-        setLocationByPlatform(true);
+        setResizable(false);
 
         background_header.setBackground(new java.awt.Color(42, 211, 117));
         background_header.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, new java.awt.Color(172, 172, 172)));
@@ -227,11 +218,11 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
-        clear();
+        clear(); //gọi Function clear()
     }//GEN-LAST:event_btnClearActionPerformed
 
     private void btnCalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalActionPerformed
-        result_BMI();
+        result_BMI(); //gọi function result_BMI()
     }//GEN-LAST:event_btnCalActionPerformed
 
     /**
@@ -314,8 +305,10 @@ public class Interface extends javax.swing.JFrame {
                 title_result.setText("Extremely Obese");
             }
 
-        } catch (Exception e) {
-            title_result.setText("Height or Weight Null");
+        } catch (NumberFormatException e) {
+            title_result.setText("Null or Error");
+            txtBMI.setBackground(Color.white);
+            txtBMI.setText("");
         }
 
     }
